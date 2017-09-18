@@ -5,13 +5,16 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
 
+import { DashboardModule } from './dashboard/dashboard.module'
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    CoreModule
+    CoreModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

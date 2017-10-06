@@ -17,4 +17,12 @@ export class CounterComponent {
     this.valueCounter--;
     this.eventCounter.emit(this.valueCounter);
   }
+  reset(): void {
+    this.valueCounter = 0;
+    this.eventCounter.emit(this.valueCounter);
+  }
+  valueChange(value): void {
+    this.eventCounter.emit(this.valueCounter);
+  }
+  
 }

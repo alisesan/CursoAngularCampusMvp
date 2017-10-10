@@ -1,2 +1,19 @@
 <app-number-list></app-number-list>
-
+<p>Decimal pipe: {{value | number:'6.0-4'}} . Aquí vemos que rellena con ceros a la izquierda</p>
+<p>Decimal pipe: {{value | number:'1.0-4'}} </p>
+<p>Decimal pipe: {{value | number:'2.0-4'}} Ambos casos anteriores cumple el mínimo de dígitos especificado</p>
+<p>Slice pipe: </p>
+Aquí es desde-hasta sin incluir el último [,)
+<ul>
+    <li *ngFor="let i of cadena | slice:0:4">{{i}}</li>
+</ul>
+A partir del index 4 [,...
+<ul>
+    <li *ngFor="let i of cadena | slice:4">{{i}}</li>
+</ul>
+<p>Date pipe: {{fecha | date:'medium'}}</p>
+<p>Date pipe: {{fecha2 | date:'fullDate'}}</p>
+<p>Currency pipe: {{precio | currency:'EUR':true:'1.0-2'}}</p>
+<p>Json pipe: {{object | json}}</p>
+<p>UpperCase pipe: {{ nombre | uppercase }}</p>
+<p>Percent pipe: {{ numero | percent}}</p>

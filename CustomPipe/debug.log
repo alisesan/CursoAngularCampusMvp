@@ -4,3 +4,6 @@
 [1010/174936.961:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\settings.dat: Acceso denegado. (0x5)
 [1010/174936.969:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
 [1010/174936.973:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\settings.dat: Acceso denegado. (0x5)
+[1010/183810.069:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\settings.dat: Acceso denegado. (0x5)
+[1010/183810.077:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[1010/183810.080:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\settings.dat: Acceso denegado. (0x5)

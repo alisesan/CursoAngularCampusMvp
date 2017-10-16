@@ -7,23 +7,21 @@ import { ErrorComponent } from './error/error.component';
 import { HelloComponent } from './hello/hello.component';
 import { HomeComponent } from './home/home.component';
 
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'hello/:name', component: HelloComponent},
-  {path: '**', component: ErrorComponent}
-];
+import { AppRoutingModule } from './app.routing.module';
+import { HelloModule } from './hello/hello.module';
+import { HomeModule } from './home/home.module';
+import { ErrorModule } from './error/error.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ErrorComponent,
-    HelloComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+    HelloModule,
+    HomeModule,
+    ErrorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

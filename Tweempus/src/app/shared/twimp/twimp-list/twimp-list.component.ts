@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Twimp } from '../twimp.model';
 import { Author } from '../../author/author.model';
 
-
 @Component({
   selector: 'tweempus-twimp-list',
   templateUrl: './twimp-list.component.html',
@@ -14,11 +13,11 @@ export class TwimpListComponent implements OnInit {
   authors: Author[] = [];
   twimps: Twimp[] = [];
 
-  ngOnInit(){
+  ngOnInit() {
     this.authors.push(new Author('1'));
-    this.twimps.push(new Twimp('1', '',this.authors[0], '1 ' + this.text, '01/01/2000'));
-    this.twimps.push(new Twimp('2', '',this.authors[0], '2 ' + this.text, '02/01/2000'));
-    this.twimps.push(new Twimp('3', '',this.authors[0], '3 ' + this.text, '03/01/2000'));
-    this.twimps.push(new Twimp('4', '',this.authors[0], '4 ' + this.text, '04/01/2000'));
+    this.twimps.push(new Twimp('1', '', this.authors[0], this.text, '01/01/2000'));
+    this.twimps.push(new Twimp('2', '', this.authors[0], this.text, '01/01/2000'));
+    this.twimps.push(new Twimp('3', '', this.authors[0], this.text, '01/01/2000'));
+    this.twimps.push(new Twimp('4', '', this.authors[0], this.text, '01/01/2000'));
   }
 }

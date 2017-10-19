@@ -1,7 +1,6 @@
 import { Author } from '../author/author.model';
 
 export class Twimp {
-
     private _id: string;
     private _url: string;
     private _author: Author;
@@ -9,7 +8,7 @@ export class Twimp {
     private _timestamp: string;
     private _favorite: boolean;
 
-    constructor(id: string, url: string, author: Author, content: string, timestamp: string){
+    constructor(id: string, url: string, author: Author, content: string, timestamp: string) {
         this._id = id;
         this._url = url;
         this._author = author;

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { Twimp } from '../twimp.model';
 
 @Component({
@@ -8,9 +9,4 @@ import { Twimp } from '../twimp.model';
 })
 export class TwimpCardComponent {
   @Input() twimp: Twimp;
-
-  changeFavorite(): void {
-    this.twimp.favorite = !this.twimp.favorite;
-    console.log("Is Favorite :", this.twimp.favorite);
-  }
-} 
+}

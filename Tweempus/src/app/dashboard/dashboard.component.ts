@@ -27,12 +27,12 @@ export class DashboardComponent implements OnInit {
       Observable.from(twimps).subscribe(twimp => {
         this.authorService.getAuthor(twimp.author.id).subscribe(author => {
           twimp.author = author;
-          this.twimpService.getFavoritesByAuthor("1", twimp.id).subscribe(favorite => {
+          this.twimpService.isFavoriteByAuthor("1", twimp.id).subscribe(favorite => {
             twimp.favorite = favorite;
             this.twimpList.push(twimp);
-          })
-        })
-      })
+          });
+        });
+      });
     });
   }
 }

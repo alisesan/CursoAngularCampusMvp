@@ -37,7 +37,7 @@ export class TwimpService {
       .catch(this.handleError);
   }
 
-  getFavoritesByAuthor(idAuthor: string, idTwimp: string): Observable<boolean> {
+  isFavoriteByAuthor(idAuthor: string, idTwimp: string): Observable<boolean> {
     return this.http.get(this.urlFavorite + '/' + idAuthor)
     .map(response => {
       let favorites: string[] = response.json().twimps;
@@ -46,6 +46,25 @@ export class TwimpService {
       } else {
         return true;
       }
+    })
+    .catch(this.handleError);
+  }
+
+  getFavoritesByAuthor(idAuthor: string): Observable<string[]> {
+    return this.http.get(this.urlFavorite + '/' + idAuthor)
+    .map(response => {
+      let favorites: string[] = response.json().twimps;
+      return favorites;
+    })
+    .catch(this.handleError);
+  }
+
+  setFavoritesByAuthor(idAuthor: string, twimps: string[]): Observable<boolean> {
+    let body: Object = {'twimps': twimps};
+
+    return this.http.put(this.urlFavorite + '/' + idAuthor, body)
+    .map(response => {
+      return response.json();
     })
     .catch(this.handleError);
   }

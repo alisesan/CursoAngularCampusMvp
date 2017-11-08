@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { AuthorService } from '../shared/author/author.service';
 import { AuthenticationService } from '../core/authentication.service';
 
 @Component({
@@ -7,11 +9,29 @@ import { AuthenticationService } from '../core/authentication.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  userForm: FormGroup;
 
-  logIn(){
-    this.authService.login("1");
+  userNoExist: boolean = false;
+
+  constructor(private authService: AuthenticationService,
+    private authorService: AuthorService,
+    private fb: FormBuilder) { }
+
+  ngOnInit() {
+    this.userForm = this.fb.group({
+      idAuthor: ['', Validators.required]
+    });
+  }
+
+  logIn(form: any) {
+    if (this.userNoExist){
+      this.userNoExist = false;
+    }
+    this.authorService.getAuthor(form.value.idAuthor).subscribe(
+      author => this.authService.login(form.value.idAuthor),
+      error => this.userNoExist = true
+    );
   }
 }

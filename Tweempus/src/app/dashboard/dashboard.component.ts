@@ -5,6 +5,7 @@ import 'rxjs/add/observable/from';
 
 import { AuthorService } from '../shared/author/author.service';
 import { TwimpService } from '../shared/twimp/twimp.service';
+import { AuthenticationService } from '../core/authentication.service';
 
 import { Twimp } from '../shared/twimp/twimp.model';
 
@@ -18,7 +19,8 @@ export class DashboardComponent implements OnInit {
   twimpList: Twimp[] = [];
 
   constructor(private authorService: AuthorService,
-              private twimpService: TwimpService) { }
+              private twimpService: TwimpService,
+              private authService: AuthenticationService) { }
 
   ngOnInit() {
     // this.authorService.getAuthor("2").subscribe(author => console.log(author));
@@ -27,7 +29,7 @@ export class DashboardComponent implements OnInit {
       Observable.from(twimps).subscribe(twimp => {
         this.authorService.getAuthor(twimp.author.id).subscribe(author => {
           twimp.author = author;
-          this.twimpService.isFavoriteByAuthor("1", twimp.id).subscribe(favorite => {
+          this.twimpService.isFavoriteByAuthor(this.authService.token.idAuthor, twimp.id).subscribe(favorite => {
             twimp.favorite = favorite;
             this.twimpList.push(twimp);
           });

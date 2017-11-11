@@ -69,6 +69,20 @@ export class TwimpService {
     .catch(this.handleError);
   }
 
+  setTwimp(twimp: Twimp): Observable<any> {
+    let dbTwimp: any = {
+      'id': twimp.id,
+      'author': twimp.author.id,
+      'by': twimp.author.fullName,
+      'content': twimp.content,
+      'timestamp': twimp.timestamp
+    };
+
+    return this.http.post(this.urlTwimps, dbTwimp)
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+
   handleError(error: any){
     let errMsg = (error.message) ? error.message :
       error.status ? `$(error.status) - $(error.statusText)` : 'Server error';

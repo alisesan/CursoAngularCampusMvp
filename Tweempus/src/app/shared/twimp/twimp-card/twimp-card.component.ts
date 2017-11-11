@@ -5,6 +5,8 @@ import 'rxjs/add/observable/from';
 
 import { TwimpService } from '../twimp.service';
 
+import { AuthenticationService } from '../../../core/authentication.service'
+
 import { Twimp } from '../twimp.model';
 
 @Component({
@@ -15,11 +17,12 @@ import { Twimp } from '../twimp.model';
 export class TwimpCardComponent {
   @Input() twimp: Twimp;
 
-  constructor(private twimpService: TwimpService){}
+  constructor(private authService: AuthenticationService,
+    private twimpService: TwimpService){}
 
   setFavorite(): void {
     this.twimp.favorite = !this.twimp.favorite;
-    this.twimpService.getFavoritesByAuthor("1").subscribe(twimps => {
+    this.twimpService.getFavoritesByAuthor(this.authService.token.idAuthor).subscribe(twimps => {
       let favoriteTwimps = twimps;
 
       var index = favoriteTwimps.indexOf(this.twimp.id);
@@ -35,7 +38,7 @@ export class TwimpCardComponent {
         }
       }
 
-      this.twimpService.setFavoritesByAuthor("1", favoriteTwimps).subscribe();
+      this.twimpService.setFavoritesByAuthor(this.authService.token.idAuthor, favoriteTwimps).subscribe();
     });
   }
 }

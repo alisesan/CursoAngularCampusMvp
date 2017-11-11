@@ -14,7 +14,8 @@ import { Author } from '../shared/author/author.model';
   styleUrls: ['./create-twimp.component.css']
 })
 export class CreateTwimpComponent implements OnInit {
-  private newTwimpForm: FormGroup;
+
+  newTwimpForm: FormGroup;
 
   constructor(private authService: AuthenticationService,
     private twimpService: TwimpService,

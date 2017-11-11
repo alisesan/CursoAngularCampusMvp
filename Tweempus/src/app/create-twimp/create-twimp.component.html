@@ -6,7 +6,7 @@
         <div class="create_twimp_error" *ngIf="newTwimpForm.get('content').hasError('required') && !newTwimpForm.get('content').pristine">
           Un Twimp tiene que contener algún texto
         </div>
-        <div class="create_twimp_error" *ngIf="newTwimpForm.get('content').hasError('maxLength') && !newTwimpForm.get('content').pristine">
+        <div class="create_twimp_error" *ngIf="newTwimpForm.get('content').hasError('maxlength') && !newTwimpForm.get('content').pristine">
           Un Twimp sólo puede contener 140 letras como máximo
         </div>
         <textarea class="create_twimp_textarea" placeholder="Máximo 140 caracteres" formControlName="content"></textarea>

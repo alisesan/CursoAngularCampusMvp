@@ -9,6 +9,11 @@
       "id": "2",
       "fullName": "David Teitelbaum",
       "image": "https://randomuser.me/api/portraits/men/82.jpg"
+    },
+    {
+      "id": "david",
+      "fullName": "david",
+      "image": "https://randomuser.me/api/portraits/men/86.jpg"
     }
   ],
   "authenticated": [],
@@ -26,20 +31,36 @@
       "by": "David Teitelbaum",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur sodales libero, sit amet posuere arcu consectetur ut. Nam volutpat ligula ac nunc consectetur vestibulum.",
       "timestamp": "12-10-2016"
+    },
+    {
+      "id": "2",
+      "author": "david",
+      "by": "Author",
+      "content": "Un nuevo twimp",
+      "timestamp": "11-11-2017"
     }
   ],
   "author-favorites": [
     {
-      "id": "1",
       "twimps": [
-        "T4qdo1483390015454"
-      ]
+        "T4qdo1483390015454",
+        "Mx5Cf1483389903318",
+        "2"
+      ],
+      "id": "1"
     },
     {
       "id": "2",
       "twimps": [
         "Mx5Cf1483389903318"
       ]
+    },
+    {
+      "twimps": [
+        "T4qdo1483390015454",
+        "Mx5Cf1483389903318"
+      ],
+      "id": "david"
     }
   ],
   "author-twimps": [

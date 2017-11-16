@@ -37,6 +37,29 @@ export class TwimpService {
       .catch(this.handleError);
   }
 
+  getAuthorTwimps(idAuthor: string): Observable<Twimp[]> {
+    let twimps: Twimp[] = [];
+
+    return this.http.get(this.urlTwimps)
+    .map(response => {
+      let dbTwimpList: any = response.json();
+      for(let i in dbTwimpList){
+        if(dbTwimpList[i].author === idAuthor) {
+          let twimp: Twimp = new Twimp(dbTwimpList[i].id,
+            'localhost:4200/twimp/' + dbTwimpList[i].id,
+            new Author(dbTwimpList[i].author),
+            dbTwimpList[i].content,
+            dbTwimpList[i].timestamp
+          );
+          twimps.push(twimp);
+        }
+      }
+      return twimps;
+    })
+    .catch(this.handleError);
+
+  }
+
   isFavoriteByAuthor(idAuthor: string, idTwimp: string): Observable<boolean> {
     return this.http.get(this.urlFavorite + '/' + idAuthor)
     .map(response => {

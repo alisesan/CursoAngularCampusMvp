@@ -6,6 +6,7 @@ import { AuthGuardService } from '../core/auth-guard.service';
 import { ProfileComponent } from './profile.component';
 import { FavoriteTwimpsComponent } from './favorite-twimps/favorite-twimps.component';
 import { MyTwimpsComponent } from './my-twimps/my-twimps.component';
+import { EditComponent } from './edit/edit.component';
 
 const profileRoutes: Routes = [
     {
@@ -25,6 +26,10 @@ const profileRoutes: Routes = [
                 path: 'favorite-twimps',
                 component: FavoriteTwimpsComponent
             },
+            {
+              path: 'edit',
+              component: EditComponent
+          },
         ]
     },
 ];

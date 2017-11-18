@@ -7,6 +7,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { FavoriteTwimpsComponent } from './favorite-twimps/favorite-twimps.component';
 import { MyTwimpsComponent } from './my-twimps/my-twimps.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { MyTwimpsComponent } from './my-twimps/my-twimps.component';
     SharedModule,
     ProfileRoutingModule
   ],
-  declarations: [ProfileComponent, FavoriteTwimpsComponent, MyTwimpsComponent]
+  declarations: [ProfileComponent, FavoriteTwimpsComponent, MyTwimpsComponent, EditComponent]
 })
 export class ProfileModule { }

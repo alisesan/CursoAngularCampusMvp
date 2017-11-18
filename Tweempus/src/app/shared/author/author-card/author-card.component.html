@@ -3,10 +3,15 @@
   <div class="author_data">
     <div class="author_data_img_wrap">
       <img class="author_data_img" src="assets/images/google-icon.png" alt="Imagen del usuario">
+      <div class="author_nav_list_item" routerLinkActive="author_nav_list_item-selected">
+        <a class="author_nav_list_link" routerLink="/profile/{{author?.id}}/edit">Editar perfil</a>
+      </div>
     </div>
+
     <div class="author_data_name">
       {{author?.fullName}}
     </div>
+
   </div>
 
   <nav class="author_nav">

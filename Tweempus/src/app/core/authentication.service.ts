@@ -12,11 +12,12 @@ import { AuthorService } from '../shared/author/author.service';
 import { Author } from '../shared/author/author.model';
 
 import { Token } from './token.model';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class AuthenticationService {
 
-  private url: string = 'http://localhost:3000/authenticated';
+  private url: string = environment.url + 'authenticated';
 
   token: Token = null;
 

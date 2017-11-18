@@ -8,12 +8,13 @@ import 'rxjs/add/operator/map';
 
 import { Author } from '../author/author.model';
 import { Twimp } from './twimp.model';
+import { environment } from 'environments/environment.prod';
 
 @Injectable()
 export class TwimpService {
 
-  private urlTwimps: string = 'http://localhost:3000/twimps';
-  private urlFavorite: string = 'http://localhost:3000/author-favorites';
+  private urlTwimps: string = environment.url + 'twimps';
+  private urlFavorite: string = environment.url + 'author-favorites';
 
   constructor(private http: Http) { }
 

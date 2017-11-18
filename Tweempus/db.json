@@ -52,14 +52,21 @@
       "by": "Author",
       "content": "El primero de 2014",
       "timestamp": "06-03-2014"
+    },
+    {
+      "id": "5",
+      "author": "1",
+      "by": "Author",
+      "content": "hola pesicola\n",
+      "timestamp": "18-11-2017"
     }
   ],
   "author-favorites": [
     {
       "twimps": [
         "T4qdo1483390015454",
-        "2",
-        "Mx5Cf1483389903318"
+        "Mx5Cf1483389903318",
+        "3"
       ],
       "id": "1"
     },
@@ -72,7 +79,8 @@
     {
       "twimps": [
         "T4qdo1483390015454",
-        "4"
+        "4",
+        "5"
       ],
       "id": "david"
     }

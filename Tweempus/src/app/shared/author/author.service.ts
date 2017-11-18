@@ -7,18 +7,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Author } from './author.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AuthorService {
 
-  private url: string = 'http://localhost:3000/authors';
-  private urlFavorite: string = 'http://localhost:3000/author-favorites';
+  private url: string = environment.url + 'authors';
+  private urlFavorite: string = environment.url + 'author-favorites';
 
   constructor(private http: Http) { }
 
   getAuthor(id: string): Observable<Author> {
     let author: Author = null;
-
     return this.http.get(this.url + '/' + id )
       .map(response => {
         let dbAuthor: any = response.json();

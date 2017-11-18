@@ -11,6 +11,11 @@ const dashboardRoutes: Routes = [
       component: DashboardComponent,
       canActivate: [AuthGuardService]
     },
+    {
+      path: '',
+      component: DashboardComponent,
+      canActivate: [AuthGuardService]
+    }
 ];
 
 @NgModule({

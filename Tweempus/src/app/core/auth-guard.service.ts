@@ -10,8 +10,7 @@ export class AuthGuardService implements CanActivate {
               private authService: AuthenticationService) { }
 
   canActivate() {
-
-    if(this.authService.token != null){
+    if (this.authService.token != null){
       return true;
     }
 

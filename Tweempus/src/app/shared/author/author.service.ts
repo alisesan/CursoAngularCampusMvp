@@ -25,7 +25,7 @@ export class AuthorService {
         author = new Author(dbAuthor.id);
         author.fullName = dbAuthor.fullName;
         author.image = dbAuthor.image;
-        author.url = 'http://localhost:4200/author/'+ dbAuthor.id;
+        author.url = 'http://localhost:4200/profile/' + dbAuthor.id;
         return author;
       })
       .catch(this.handleError);

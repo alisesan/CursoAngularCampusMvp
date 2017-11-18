@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+
 import { TwimpService } from '../../shared/twimp/twimp.service';
 import { AuthenticationService } from '../../core/authentication.service';
+import { AuthorService } from '../../shared/author/author.service';
 
 import { Twimp } from '../../shared/twimp/twimp.model';
 import { Route } from '@angular/router/src/config';
@@ -14,21 +18,28 @@ import { Route } from '@angular/router/src/config';
 })
 export class MyTwimpsComponent implements OnInit {
 
-  mytwimpslist: Array<Twimp> = null;
-  //mytwimpslist: Twimp[] = [];
+  mytwimpslist: Twimp[] = [];
   idAuthor: string = null;
 
   constructor(private twimpService: TwimpService,
     private authService: AuthenticationService,
+    private authorService: AuthorService,
     private route: ActivatedRoute,
     private router: Router ) { }
 
   ngOnInit() {
     this.idAuthor = this.route.parent.snapshot.params['id'];
     this.twimpService.getAuthorTwimps(this.idAuthor)
-    .subscribe(response => {
-      console.log(response);
-      this.mytwimpslist = response;
+    .subscribe(mytwimps => {
+      Observable.from(mytwimps).subscribe(twimp => {
+        this.authorService.getAuthor(twimp.author.id).subscribe(author => {
+          twimp.author = author;
+          this.twimpService.isFavoriteByAuthor(this.idAuthor, twimp.id).subscribe(favorite =>{
+            twimp.favorite = favorite;
+            this.mytwimpslist.push(twimp);
+          });
+        });
+      });
     });
 
   }

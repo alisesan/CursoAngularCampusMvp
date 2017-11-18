@@ -38,6 +38,13 @@
       "by": "Author",
       "content": "Un nuevo twimp",
       "timestamp": "11-11-2017"
+    },
+    {
+      "id": "3",
+      "author": "david",
+      "by": "Author",
+      "content": "Mi segundo twimp",
+      "timestamp": "18-11-2017"
     }
   ],
   "author-favorites": [

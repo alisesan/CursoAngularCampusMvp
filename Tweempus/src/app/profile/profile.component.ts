@@ -23,5 +23,4 @@ export class ProfileComponent implements OnInit {
     this.idAuthor = this.route.snapshot.params['id'];
     this.authorService.getAuthor(this.idAuthor).subscribe(author => this.author = author);
   }
-
 }

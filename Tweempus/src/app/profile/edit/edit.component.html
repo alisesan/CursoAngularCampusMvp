@@ -1,3 +1,38 @@
-<p>
-  edit works!
-</p>
+<section class="main section_signup">
+
+      <div class="editprofile_box rubberBand">
+        <form class="editprofile_form" [formGroup]="editUserForm" (ngSubmit)="editProfile(editUserForm)">
+          <!-- NICK -->
+          <label class="editprofile_form_label">Nick:</label>
+          <div class="editprofile_form_error" *ngIf="editUserForm.get('idAuthor').hasError('required') && !editUserForm.get('idAuthor').pristine">
+            El nick es obligatorio
+          </div>
+          <div class="editprofile_form_error" *ngIf="editUserForm.get('idAuthor').hasError('invalidNick') && !editUserForm.get('idAuthor').pristine">
+            El nick sólo puede contener números y letras
+          </div>
+          <div class="editprofile_form_error" *ngIf="userAlreadyExist">
+            Ya existe un usuario con este nick
+          </div>
+          <input type="text" class="editprofile_form_input-text" formControlName="idAuthor">
+          <!-- NICK -->
+
+          <!-- FULL NAME -->
+          <label class="editprofile_form_label">Nombre:</label>
+          <div class="editprofile_form_error" *ngIf="editUserForm.get('fullName').hasError('required') && !editUserForm.get('fullName').pristine">
+            El nombre es obligatorio
+          </div>
+          <div class="editprofile_form_error" *ngIf="editUserForm.get('fullName').hasError('minlength') && !editUserForm.get('fullName').pristine">
+            Tu nombre debe tener como mínimo 3 carácteres
+          </div>
+          <input type="text" class="editprofile_form_input-text" formControlName="fullName">
+          <!-- FULL NAME -->
+
+          <!-- IMAGE -->
+          <label class="editprofile_form_label">Imagen de perfil:</label>
+          <input type="url" class="editprofile_form_input-text" formControlName="image">
+          <!-- IMAGE -->
+          <button type="submit" class="editprofile_button" [disabled]="editUserForm.invalid" >Guardar  </button>
+        </form>
+      </div>
+
+    </section>

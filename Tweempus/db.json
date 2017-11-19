@@ -14,6 +14,11 @@
       "id": "david",
       "fullName": "david",
       "image": "https://randomuser.me/api/portraits/men/86.jpg"
+    },
+    {
+      "id": "alicia",
+      "fullName": "Alicia Serrano Sánchez",
+      "image": "https://randomuser.me/api/portraits/women/34.jpg"
     }
   ],
   "authenticated": [],
@@ -35,28 +40,28 @@
     {
       "id": "2",
       "author": "david",
-      "by": "Author",
+      "by": "david",
       "content": "Un nuevo twimp",
       "timestamp": "11-09-2017"
     },
     {
       "id": "3",
       "author": "david",
-      "by": "Author",
+      "by": "david",
       "content": "Mi segundo twimp",
       "timestamp": "18-11-2017"
     },
     {
       "id": "4",
       "author": "david",
-      "by": "Author",
+      "by": "david",
       "content": "El primero de 2014",
       "timestamp": "06-03-2014"
     },
     {
       "id": "5",
       "author": "1",
-      "by": "Author",
+      "by": "David East",
       "content": "hola pesicola\n",
       "timestamp": "18-11-2017"
     }
@@ -83,6 +88,10 @@
         "5"
       ],
       "id": "david"
+    },
+    {
+      "id": "alicia",
+      "twimps": []
     }
   ],
   "author-twimps": [

@@ -2,10 +2,7 @@
 
   <div class="author_data">
     <div class="author_data_img_wrap">
-      <img class="author_data_img" src="assets/images/google-icon.png" alt="Imagen del usuario">
-      <div class="author_nav_list_item" routerLinkActive="author_nav_list_item-selected">
-        <a class="author_nav_list_link" routerLink="/profile/{{author?.id}}/edit">Editar perfil</a>
-      </div>
+      <img class="author_data_img" src="{{author?.image}}" alt="Imagen del usuario">
     </div>
 
     <div class="author_data_name">
@@ -21,6 +18,9 @@
       </li>
       <li class="author_nav_list_item" routerLinkActive="author_nav_list_item-selected">
         <a class="author_nav_list_link" routerLink="/profile/{{author?.id}}/favorite-twimps">Mis Favoritos</a>
+      </li>
+      <li class="author_nav_list_item" routerLinkActive="author_nav_list_item-selected" *ngIf="checkAuthor()">
+        <a class="author_nav_list_link" routerLink="/profile/{{author?.id}}/edit">Editar perfil</a>
       </li>
     </ul>
   </nav>

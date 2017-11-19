@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 
 import { Author } from '../author/author.model';
 import { Twimp } from './twimp.model';
-import { environment } from 'environments/environment.prod';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class TwimpService {

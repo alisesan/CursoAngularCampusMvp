@@ -15,7 +15,8 @@ export class AuthorCardComponent {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthenticationService ) { }
+    private authService: AuthenticationService) {
+    }
 
   checkAuthor(): boolean {
     var profileAuthor = this.route.snapshot.params['id'];

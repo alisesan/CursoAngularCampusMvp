@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { TwimpService } from './twimp/twimp.service';
 import { AuthorService } from './author/author.service';
+import { SharedService } from './shared.service';
 
 import { TwimpCardComponent } from './twimp/twimp-card/twimp-card.component';
 import { TwimpListComponent } from './twimp/twimp-list/twimp-list.component';
@@ -16,7 +17,7 @@ import { SortByPipe } from './sort-by.pipe';
     RouterModule
   ],
   declarations: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent, SortByPipe],
-  providers: [TwimpService, AuthorService],
+  providers: [TwimpService, AuthorService, SharedService],
   exports: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent, RouterModule]
 })
 export class SharedModule { }

@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { AuthenticationService } from '../../core/authentication.service';
 import { AuthorService } from '../../shared/author/author.service';
 
+import { SharedService } from '../../shared/shared.service';
+
 import { Author } from '../../shared/author/author.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
@@ -21,6 +23,7 @@ export class EditComponent implements OnInit {
 
   constructor(private authorService: AuthorService,
     private authService: AuthenticationService,
+    private sharedService: SharedService,
     private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -73,6 +76,10 @@ export class EditComponent implements OnInit {
       });
       if (!this.userAlreadyExist) {
         this.authorService.updateAuthor(form.value.idAuthor, form.value.fullName, form.value.image).subscribe();
+        this.authorService.getAuthor(form.value.idAuthor).subscribe(author => {
+          console.log("call emit change");
+          this.sharedService.emitChange(author);
+        });
       }
     });
   }

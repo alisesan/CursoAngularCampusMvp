@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
     private sharedService: SharedService ) {
       this.subscription = sharedService.changeEmitted$.subscribe(
         author => {
-          console.log("change emitted");
           this.author = author;
         }
       );

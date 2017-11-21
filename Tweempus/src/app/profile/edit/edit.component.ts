@@ -75,10 +75,10 @@ export class EditComponent implements OnInit {
         }
       });
       if (!this.userAlreadyExist) {
-        this.authorService.updateAuthor(form.value.idAuthor, form.value.fullName, form.value.image).subscribe();
-        this.authorService.getAuthor(form.value.idAuthor).subscribe(author => {
-          console.log("call emit change");
-          this.sharedService.emitChange(author);
+        this.authorService.updateAuthor(form.value.idAuthor, form.value.fullName, form.value.image).subscribe(response => {
+          this.authorService.getAuthor(form.value.idAuthor).subscribe(author => {
+            this.sharedService.emitChange(author);
+          });
         });
       }
     });

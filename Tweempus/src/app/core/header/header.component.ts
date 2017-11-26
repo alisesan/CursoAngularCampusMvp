@@ -15,7 +15,6 @@ export class HeaderComponent {
     if (this.authService.token != null){
       return true;
     }
-
     return false;
   }
 

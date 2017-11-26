@@ -32,7 +32,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.idAuthor = this.route.snapshot.params['id'];
-    this.authorService.getAuthor(this.idAuthor).subscribe(author => this.author = author);
+    this.authorService.getAuthor(this.idAuthor).subscribe(author => {
+      this.author = author;
+    });
+
+
   }
 
   ngOnDestroy() {

@@ -24,13 +24,19 @@ export class AuthenticationService {
   constructor(private http: Http,
               private router: Router,
               private authorService: AuthorService,
-              ) { }
+              ) {
+                if (localStorage.getItem('token') != null) {
+                  let tokenLS = JSON.parse(localStorage.getItem('token'));
+                  this.token = new Token(tokenLS['_key'], tokenLS['_idAuthor']);
+                }
+              }
 
   login(idAuthor: string): void {
     this.authorService.getAuthor(idAuthor).subscribe(author => {
       let tokenGenerated = this.generateToken();
       this.saveSession(tokenGenerated, author.id).subscribe(response => {
         this.token = new Token(response['id'], response['author']);
+        localStorage.setItem('token', JSON.stringify(this.token));
         this.router.navigate(['/dashboard']);
       });
     });
@@ -39,6 +45,7 @@ export class AuthenticationService {
   logout(): void {
     this.deleteSession().subscribe(response => {
       this.token = null;
+      localStorage.removeItem("token");
       this.router.navigate(['/login']);
     });
   }
